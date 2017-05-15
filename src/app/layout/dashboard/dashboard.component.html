@@ -1,61 +1,57 @@
-<h2 class="text-muted">Dashboard <small>Statistics Overview</small></h2>
+
+
 <div class="row">
     <div class="col-md-12">
-        <ngb-carousel>
-            <ng-template ngbSlide *ngFor="let slider of sliders">
-                <img class="img-fluid mx-auto d-block" [src]="slider.imagePath" alt="Random first slide" width="100%">
-                <div class="carousel-caption">
-                    <h3>{{slider.label}}</h3>
-                    <p>{{slider.text}}</p>
-                </div>
-            </ng-template>
-        </ngb-carousel>
-    </div>
-</div>
-<hr>
-<div class="row">
-    <div class="col-xl-3 col-lg-6">
-        <app-stat [bgClass]="'card-primary'" [icon]="'fa-comments'" [count]="26" [label]="'New Comments!'" ></app-stat>
-    </div>
-    <div class="col-xl-3 col-lg-6">
-        <app-stat [bgClass]="'card-info'" [icon]="'fa-tasks'" [count]="12" [label]="'New task!'" ></app-stat>
-    </div>
-    <div class="col-xl-3 col-lg-6">
-        <app-stat [bgClass]="'card-success'" [icon]="'fa-shopping-cart'" [count]="124" [label]="'New Orders!'" ></app-stat>
-    </div>
-    <div class="col-xl-3 col-lg-6">
-        <app-stat [bgClass]="'card-danger'" [icon]="'fa-support'" [count]="13" [label]="'New Tickets!'"></app-stat>
-    </div>
-</div>
-<hr />
-<ngb-alert [type]="alert.type" (close)="closeAlert(alert)" *ngFor="let alert of alerts">{{ alert.message }}</ngb-alert>
-<hr />
-<div class="row">
-    <div class="col-lg-8">
-    <div class="card card-default">
-    <div class="card-header">
-                <i class="fa fa-clock-o fa-fw"></i> Responsive Timeline
-            </div>
-            <!-- /.card-header -->
-            <app-timeline></app-timeline>
-            <!-- /.card-body -->
-        </div>
-        <!-- /.card -->
-    </div>
-    <!-- /.col-lg-8 -->
-    <div class="col-lg-4">
-    <div class="card card-default">
-    <div class="card-header">
-    <i class="fa fa-bell fa-fw"></i> Notifications card
-            </div>
-            <!-- /.card-header -->
-            <app-notification></app-notification>
-            <!-- /.card-body -->
-        </div>
-        <!-- /.card -->
+        
+                    <form name="picoCatForm">
+                         <h3 >Sentence | WordToken | LookupWindowAnnotation | ProcedureMention</h3>
+                        <div class="form-group">
+                        <article>
+                            <textarea name="resumeText" rows="10" cols="100"  >  
+                            </textarea>
+                        </article>
+                            
+                        </div>
 
-        <app-chat></app-chat>
-        <!-- /.card .chat-card -->
+                        <p class="formValidationError" ng-show="selectedTextField.selectedText.$invalid && selectedTextField.selectedText.$touched">Vous devez selectionner un texte</p>
+
+                        <div class="form-inline">
+                            <div class="checkbox">
+                                <label>
+                                    <input type="checkbox" id="population" ng-model="art.annotData.population"> Population</label>
+                            </div>
+                            <div class="checkbox">
+                                <label>
+                                    <input type="checkbox" id="intervention" ng-model="art.annotData.intervention"> Intervention</label>
+                            </div>
+
+                            <div class="checkbox">
+                                <label>
+                                    <input type="checkbox" id="comparison" ng-model="art.annotData.comparison"> Comparison</label>
+                            </div>
+
+                            <div class="checkbox">
+                                <label>
+                                    <input type="checkbox" id="outcome" ng-model="art.annotData.outcome"> Outcome</label>
+                            </div>
+
+                            <div class="checkbox">
+                                <label>
+                                    <input type="checkbox" id="background" ng-model="art.annotData.background"> Background</label>
+                            </div>
+
+                        </div>
+
+
+                        <div ng-repeat="id in art.articleIdList">
+
+                            <input type="hidden" require id="articleId" ng-model="art.annotData.Id" ng-init="art.annotData.Id = id.Id">
+                        </div>
+
+                        <button type="submit" ng-disabled="selectedTextField.selectedText.$invalid" class="btn btn-primary" style="margin-top:20px" ng-click="art.postAnnotation()">Sauvegarder</button>
+
+                    </form>
     </div>
-    <!-- /.col-lg-4 -->
 </div>
+ 
+ 
