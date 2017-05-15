@@ -6,8 +6,6 @@ import {
 } from '@ng-bootstrap/ng-bootstrap';
 
 
-import { DashboardRoutingModule } from './dashboard-routing.module';
-import { DashboardComponent } from './dashboard.component';
 import {
     TimelineComponent,
     NotificationComponent,
@@ -20,14 +18,11 @@ import { StatModule } from '../../shared';
         CommonModule,
         NgbCarouselModule.forRoot(),
         NgbAlertModule.forRoot(),
-        DashboardRoutingModule,
         StatModule,
     ],
     declarations: [
-        DashboardComponent,
         TimelineComponent,
         NotificationComponent,
         ChatComponent
     ]
 })
-export class DashboardModule { }

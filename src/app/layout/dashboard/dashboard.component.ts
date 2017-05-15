@@ -5,7 +5,7 @@ import { Component, OnInit } from '@angular/core';
     templateUrl: './dashboard.component.html',
     styleUrls: ['./dashboard.component.scss']
 })
-export class DashboardComponent implements OnInit {
+export class dashboardComponent implements OnInit {
     public alerts: Array<any> = [];
     public sliders: Array<any> = [];
 
